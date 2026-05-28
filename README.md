@@ -8,7 +8,8 @@ A simple static wiki for a Dungeons &amp; Dragons campaign, ready to publish wit
 - `characters.html` — Player characters and NPCs
 - `locations.html` — Cities, dungeons, and regions
 - `sessions.html` — Chronological session log
-- `lore.html` — Pantheon, factions, and historical events
+- `lore.html` — Religion, major historical events, and ancestries
+- `ancestries.html` — Detailed reference for the peoples of the world
 - `css/style.css` — Shared parchment-themed styling
 
 ## Preview locally
