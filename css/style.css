@@ -1,0 +1,209 @@
+/* Campaign Wiki — fantasy parchment theme */
+
+:root {
+  --parchment: #f4ead5;
+  --parchment-dark: #e8d9b5;
+  --ink: #2b1e10;
+  --ink-soft: #5a4631;
+  --accent: #8b1e1e;
+  --accent-soft: #b8732b;
+  --rule: #c9b48a;
+  --shadow: rgba(40, 25, 10, 0.15);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  background-color: var(--parchment);
+  background-image:
+    radial-gradient(ellipse at top left, rgba(139, 30, 30, 0.05), transparent 60%),
+    radial-gradient(ellipse at bottom right, rgba(184, 115, 43, 0.08), transparent 60%);
+  background-attachment: fixed;
+  line-height: 1.65;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Header */
+.site-header {
+  background: linear-gradient(180deg, #3a2614 0%, #25170a 100%);
+  color: var(--parchment);
+  padding: 2.5rem 0 2rem;
+  border-bottom: 4px double var(--accent-soft);
+  text-align: center;
+}
+
+.site-title {
+  font-family: "Trajan Pro", "Cinzel", Georgia, serif;
+  font-size: 2.4rem;
+  margin: 0 0 0.4rem;
+  letter-spacing: 0.05em;
+}
+
+.site-title .accent {
+  color: var(--accent-soft);
+  font-style: italic;
+}
+
+.tagline {
+  margin: 0;
+  font-style: italic;
+  color: #d8c6a0;
+  font-size: 1.05rem;
+}
+
+/* Nav */
+.site-nav {
+  background-color: var(--parchment-dark);
+  border-bottom: 1px solid var(--rule);
+  box-shadow: 0 2px 4px var(--shadow);
+}
+
+.site-nav .container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.25rem 1.5rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.site-nav a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 3px;
+  transition: color 0.15s, background-color 0.15s;
+}
+
+.site-nav a:hover,
+.site-nav a.active {
+  color: var(--accent);
+  background-color: rgba(139, 30, 30, 0.08);
+}
+
+/* Main content */
+main {
+  padding: 2.5rem 1.5rem 3rem;
+}
+
+.card {
+  background-color: rgba(255, 250, 235, 0.7);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 1.75rem 2rem;
+  margin-bottom: 1.75rem;
+  box-shadow: 0 1px 3px var(--shadow);
+}
+
+.card h2 {
+  font-family: "Cinzel", Georgia, serif;
+  margin-top: 0;
+  color: var(--accent);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.4rem;
+  letter-spacing: 0.03em;
+}
+
+.entry {
+  padding: 0.75rem 0;
+  border-bottom: 1px dashed var(--rule);
+}
+
+.entry:last-child {
+  border-bottom: none;
+}
+
+.entry h3 {
+  margin: 0 0 0.25rem;
+  color: var(--ink);
+  font-size: 1.25rem;
+}
+
+.entry .meta {
+  margin: 0 0 0.5rem;
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+}
+
+.muted {
+  color: var(--ink-soft);
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+/* Home tiles */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.tile {
+  display: block;
+  background-color: rgba(255, 250, 235, 0.85);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 1.25rem;
+  text-decoration: none;
+  color: var(--ink);
+  box-shadow: 0 1px 3px var(--shadow);
+  transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
+}
+
+.tile:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-soft);
+  box-shadow: 0 4px 10px var(--shadow);
+}
+
+.tile h3 {
+  margin: 0 0 0.4rem;
+  color: var(--accent);
+  font-family: "Cinzel", Georgia, serif;
+}
+
+.tile p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+
+/* Footer */
+.site-footer {
+  border-top: 4px double var(--accent-soft);
+  background: linear-gradient(180deg, #25170a 0%, #3a2614 100%);
+  color: #d8c6a0;
+  text-align: center;
+  padding: 1.5rem 0;
+  font-style: italic;
+  font-size: 0.95rem;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+@media (max-width: 500px) {
+  .site-title { font-size: 1.8rem; }
+  .card { padding: 1.25rem; }
+}
