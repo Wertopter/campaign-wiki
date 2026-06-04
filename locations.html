@@ -3,8 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Locations — Campaign Wiki</title>
+  <title>Ai'Taleth — Campaign Wiki</title>
   <link rel="stylesheet" href="css/style.css" />
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+  />
 </head>
 <body>
   <header class="site-header">
@@ -26,94 +32,42 @@
 
   <main class="container">
     <section class="card">
-      <h2>Prominent <a href="civilizations/civilizations.html">Civilizations</a></h2>
-
-      <article class="entry">
-        <h3>The Free Cities</h3>
-        <p class="meta">Northeastern Thul · City-States</p>
-        <p>
-          A collection of city-states in the northeastern part of Thul. Known for their trade, independence, and sovereignty from
-          the other city-states of the region.
-        </p>
-      </article>
-
-      <article class="entry">
-        <h3>The Gaimond Kingdom</h3>
-        <p class="meta">Eastern Thul · Kingdom · Extreme Religious Beliefs</p>
-        <p>
-          An ancient kingdom who's royal family dates back to the Holy Valir Empire. Known for it's
-          extreme religious beliefs and it's military strength. Follows the Lord of Light as it's patron god.
-        </p>
-      </article>
+      <h2>The World of Ai' Taleth</h2>
+      <p class="muted">
+        Click and drag to pan. Scroll or use the controls to zoom.
+      </p>
+      <div id="world-map" class="world-map"></div>
     </section>
 
     <section class="card">
-      <h2>Regions</h2>
-      <p>Thul is made up of many regions, each with their own unique geography and civilizations.</p>
-      
-      <article class="entry">
-        <h3>The Ai' Lekal Desert</h3>
-        <p class="meta">Ancient desert · Untamed</p>
-        <p>
+      <h2>Continents</h2>
 
+      <article class="entry">
+        <h3><a href="locations/thul.html">Thul</a></h3>
+        <p class="meta">Largest · Where the story takes place</p>
+        <p>
+          The largset continent in Ai' Taleth and the home to many different cultures and civilizations.
         </p>
       </article>
 
       <article class="entry">
-        <h3>Barbaria</h3>
-        <p class="meta">Wartorn plain · Bogs and Swamps</p>
+        <h3>Valiris</h3>
+        <p class="meta">Destroyed · Ancient · Perilous</p>
         <p>
-
+          The destroyed continent of Ai' Taleth that is now a dangerous and unforgiving place as it has been overrun
+          by demons, devils, and rot. None who venture into Valiris are never seen again.
         </p>
       </article>
 
       <article class="entry">
-        <h3>The Erguld Forest</h3>
-        <p class="meta">Western forest · Rarely visited</p>
+        <h3>Skyrr</h3>
+        <p class="meta">Giant · Unexplored</p>
         <p>
-
+          Skyrr is the home of the ancient giants who once occupied ancient Thul. No living humanoid has ever set foot on Skyrr.
+          Some believe it only exists in legend and myth.
         </p>
       </article>
 
-      <article class="entry">
-        <h3>The Frigid Reach</h3>
-        <p class="meta">Southern Peninsula · Frozen Tundra</p>
-        <p>
-
-        </p>
-      </article>
-
-      <article class="entry">
-        <h3>The Gellmir Mountains</h3>
-        <p class="meta">Center of Thul · Giant mountain range</p>
-        <p>
-
-        </p>
-      </article>
-
-      <article class="entry">
-        <h3>The Great Plains</h3>
-        <p class="meta">Eastern Thul · Grassy plains and rolling hills</p>
-        <p>
-
-        </p>
-      </article>
-      
-      <article class="entry">
-        <h3>The Iron Coast</h3>
-        <p class="meta">Western Thul · Baren badlands</p>
-        <p>
-
-        </p>
-      </article>
-
-      <article class="entry">
-        <h3>The Weirwood</h3>
-        <p class="meta">Eastern forest · Fey-touched</p>
-        <p>
-
-        </p>
-      </article>
     </section>
   </main>
 
@@ -122,5 +76,70 @@
       <p>Compiled by the party scribe. May the dice favor the bold.</p>
     </div>
   </footer>
+
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+  ></script>
+  <script>
+    (function () {
+      var mapEl = document.getElementById('world-map');
+      if (!mapEl || typeof L === 'undefined') return;
+
+      var imageUrl = "images/Ai'%20Taleth.png";
+
+      var img = new Image();
+      img.onload = function () {
+        var h = img.naturalHeight;
+        var w = img.naturalWidth;
+
+        // Frame the map container to match the source image's aspect ratio.
+        mapEl.style.aspectRatio = w + ' / ' + h;
+
+        var map = L.map(mapEl, {
+          crs: L.CRS.Simple,
+          minZoom: -4,
+          maxZoom: 2,
+          zoomSnap: 0.25,
+          attributionControl: false,
+        });
+
+        var bounds = [[0, 0], [h, w]];
+        L.imageOverlay(imageUrl, bounds).addTo(map);
+        map.fitBounds(bounds);
+        map.setMaxBounds([[-h * 0.25, -w * 0.25], [h * 1.25, w * 1.25]]);
+
+        // Home button: recenter and re-fit the map.
+        var HomeControl = L.Control.extend({
+          options: { position: 'topleft' },
+          onAdd: function () {
+            var container = L.DomUtil.create(
+              'div',
+              'leaflet-bar leaflet-control map-home-control'
+            );
+            var btn = L.DomUtil.create('a', '', container);
+            btn.href = '#';
+            btn.title = 'Recenter map';
+            btn.setAttribute('aria-label', 'Recenter map');
+            btn.innerHTML = '&#8962;'; // house glyph
+            L.DomEvent.on(btn, 'click', function (e) {
+              L.DomEvent.preventDefault(e);
+              L.DomEvent.stopPropagation(e);
+              map.fitBounds(bounds);
+            });
+            return container;
+          },
+        });
+        map.addControl(new HomeControl());
+      };
+      img.onerror = function () {
+        mapEl.innerHTML =
+          '<p class="muted" style="padding:1rem;text-align:center;">' +
+          'Could not load the world map image.</p>';
+      };
+      img.src = imageUrl;
+    })();
+  </script>
 </body>
 </html>

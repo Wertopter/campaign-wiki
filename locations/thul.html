@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thul — Campaign Wiki</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+  />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title">Thul</h1>
+      <p class="tagline">Realms walked, cities sacked, dungeons delved.</p>
+    </div>
+  </header>
+
+  <nav class="site-nav">
+    <div class="container">
+      <a href="../index.html">Home</a>
+      <a href="../characters.html">Characters</a>
+      <a href="../locations.html" class="active">Locations</a>
+      <a href="../sessions.html">Session Log</a>
+      <a href="../lore.html">Lore &amp; History</a>
+    </div>
+  </nav>
+
+  <main class="container">
+    <section class="card">
+      <h2>Civilizations of Thul</h2>
+      <p class="muted">
+        Click and drag to pan. Scroll or use the controls to zoom.
+      </p>
+      <div id="thul-map" class="world-map"></div>
+    </section>
+
+    <section class="card">
+      <h2>Prominent Civilizations</h2>
+
+      <article class="entry">
+        <h3>The Free Cities</h3>
+        <p class="meta">Northeastern Thul · City-States</p>
+        <p>
+          A collection of city-states in the northeastern part of Thul. Known for their trade, independence, and sovereignty from
+          the other city-states of the region.
+        </p>
+      </article>
+
+      <article class="entry">
+        <h3>The Gaimond Kingdom</h3>
+        <p class="meta">Eastern Thul · Kingdom · Extreme Religious Beliefs</p>
+        <p>
+          An ancient kingdom who's royal family dates back to the Holy Valir Empire. Known for it's
+          extreme religious beliefs and it's military strength. Follows the Lord of Light as it's patron god.
+        </p>
+      </article>
+
+      <article class="entry">
+        <h3>Fael&aacute;n</h3>
+        <p class="meta">The Frigid Reach · Magocracy</p>
+        <p>
+          A magocracy in the frozen south of Thul, ruled by the Council of Colors &mdash; the five
+          strongest mages in the realm, each representing one of the colors of arcane power.
+        </p>
+      </article>
+
+      <article class="entry">
+        <h3>Ar&egrave;nal</h3>
+        <p class="meta">The Weirwood · Sun Elf Kingdom</p>
+        <p>
+          A secluded kingdom of sun elves deep within the Weirwood. Little trade or diplomacy
+          reaches outsiders; the realm keeps its affairs hidden beneath the forest canopy.
+        </p>
+      </article>
+
+      <article class="entry">
+        <h3>The Dunsman Collective</h3>
+        <p class="meta">The Gellmir Mountains · Confederation</p>
+        <p>
+          A confederation of kingdoms in the Gellmir Mountains, home to dwarves, giantborne, and
+          dracona who share the high peaks and forge uneasy alliances against the harsh interior
+          of the range.
+        </p>
+      </article>
+
+      <article class="entry">
+        <h3>The Sindari Elves</h3>
+        <p class="meta">The Erguld Forest · Moon Elves</p>
+        <p>
+          A rarely seen people of moon elves who dwell in the Erguld Forest. Travelers speak of
+          glimpses among the western trees, but the Sindari seldom reveal themselves or their
+          purpose to outsiders.
+        </p>
+      </article>
+    </section>
+
+    <section class="card">
+      <h2>Regions of Thul</h2>
+      <p class="muted">
+        Click and drag to pan. Scroll or use the controls to zoom.
+      </p>
+      <div id="thul-regions-map" class="world-map"></div>
+    </section>
+
+    <section class="card">
+      <h2>Regions</h2>
+      <p>Thul is made up of many regions, each with their own unique geography and civilizations.</p>
+      
+      <article class="entry">
+        <h3>The Ai' Lekal Desert</h3>
+        <p class="meta">Ancient desert · Untamed</p>
+        <p>
+
+        </p>
+      </article>
+
+      <article class="entry">
+        <h3>Barbaria</h3>
+        <p class="meta">Wartorn plain · Bogs and Swamps</p>
+        <p>
+
+        </p>
+      </article>
+
+      <article class="entry">
+        <h3>The Erguld Forest</h3>
+        <p class="meta">Western forest · Rarely visited</p>
+        <p>
+
+        </p>
+      </article>
+
+      <article class="entry">
+        <h3>The Frigid Reach</h3>
+        <p class="meta">Southern Peninsula · Frozen Tundra</p>
+        <p>
+
+        </p>
+      </article>
+
+      <article class="entry">
+        <h3>The Gellmir Mountains</h3>
+        <p class="meta">Center of Thul · Giant mountain range</p>
+        <p>
+
+        </p>
+      </article>
+
+      <article class="entry">
+        <h3>The Great Plains</h3>
+        <p class="meta">Eastern Thul · Grassy plains and rolling hills</p>
+        <p>
+
+        </p>
+      </article>
+      
+      <article class="entry">
+        <h3>The Iron Coast</h3>
+        <p class="meta">Western Thul · Baren badlands</p>
+        <p>
+
+        </p>
+      </article>
+
+      <article class="entry">
+        <h3>The Weirwood</h3>
+        <p class="meta">Eastern forest · Fey-touched</p>
+        <p>
+
+        </p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Compiled by the party scribe. May the dice favor the bold.</p>
+    </div>
+  </footer>
+
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+  ></script>
+  <script>
+    (function () {
+      if (typeof L === 'undefined') return;
+
+      function initImageMap(elementId, imageUrl, errorMessage) {
+        var mapEl = document.getElementById(elementId);
+        if (!mapEl) return;
+
+        var img = new Image();
+        img.onload = function () {
+          var h = img.naturalHeight;
+          var w = img.naturalWidth;
+
+          mapEl.style.aspectRatio = w + ' / ' + h;
+
+          var map = L.map(mapEl, {
+            crs: L.CRS.Simple,
+            minZoom: -4,
+            maxZoom: 2,
+            zoomSnap: 0.25,
+            attributionControl: false,
+          });
+
+          var bounds = [[0, 0], [h, w]];
+          L.imageOverlay(imageUrl, bounds).addTo(map);
+          map.fitBounds(bounds);
+          map.setMaxBounds([[-h * 0.25, -w * 0.25], [h * 1.25, w * 1.25]]);
+
+          var HomeControl = L.Control.extend({
+            options: { position: 'topleft' },
+            onAdd: function () {
+              var container = L.DomUtil.create(
+                'div',
+                'leaflet-bar leaflet-control map-home-control'
+              );
+              var btn = L.DomUtil.create('a', '', container);
+              btn.href = '#';
+              btn.title = 'Recenter map';
+              btn.setAttribute('aria-label', 'Recenter map');
+              btn.innerHTML = '&#8962;';
+              L.DomEvent.on(btn, 'click', function (e) {
+                L.DomEvent.preventDefault(e);
+                L.DomEvent.stopPropagation(e);
+                map.fitBounds(bounds);
+              });
+              return container;
+            },
+          });
+          map.addControl(new HomeControl());
+        };
+        img.onerror = function () {
+          mapEl.innerHTML =
+            '<p class="muted" style="padding:1rem;text-align:center;">' +
+            errorMessage + '</p>';
+        };
+        img.src = imageUrl;
+      }
+
+      initImageMap(
+        'thul-map',
+        '../images/thul%20civilizations.png',
+        'Could not load the Thul civilizations map image.'
+      );
+      initImageMap(
+        'thul-regions-map',
+        '../images/thul%20regions.png',
+        'Could not load the Thul regions map image.'
+      );
+    })();
+  </script>
+</body>
+</html>
