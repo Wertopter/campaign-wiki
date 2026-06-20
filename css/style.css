@@ -211,6 +211,21 @@ main {
   margin-bottom: 0;
 }
 
+.card.compact .entry ul {
+  margin: 0.35rem 0 0;
+  padding-left: 1.25rem;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.card.compact .entry ul li {
+  margin-bottom: 0.35rem;
+}
+
+.card.compact .entry ul li:last-child {
+  margin-bottom: 0;
+}
+
 /* Group subheader inside a card (e.g., "Common" / "Shunned" in Ancestries) */
 .ancestry-group {
   font-family: "Cinzel", Georgia, serif;

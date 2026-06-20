@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Greenport — Campaign Wiki</title>
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+  />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title">Greenport</h1>
+      <p class="tagline">The Free Cities · Port city · ~500,000</p>
+    </div>
+  </header>
+
+  <nav class="site-nav">
+    <div class="container">
+      <a href="../../../index.html">Home</a>
+      <a href="../../../characters.html">Characters</a>
+      <a href="../../../locations.html" class="active">Locations</a>
+      <a href="../../../sessions.html">Session Log</a>
+      <a href="../../../lore.html">Lore &amp; History</a>
+    </div>
+  </nav>
+
+  <main class="container">
+    <section class="card">
+      <h2>Map of Greenport</h2>
+      <p class="muted">
+        Click and drag to pan. Scroll or use the controls to zoom.
+      </p>
+      <div id="greenport-map" class="world-map"></div>
+    </section>
+
+    <section class="card compact">
+      <p class="muted"><a href="../the-free-cities.html">&larr; Back to The Free Cities</a></p>
+
+      <h2>Overview</h2>
+      <article class="entry">
+        <p>
+          Greenport is a major city of the Free Cities in northeastern Thul, with an
+          estimated population of around 500,000. It was the first place the Holy Valir
+          Empire landed when they came to Thul. The city is governed by
+          <strong>Governor Elrick Winshaw</strong>, a plump halfling man &mdash; a merchant
+          turned politician.
+        </p>
+      </article>
+      <article class="entry">
+        <h3>The Grand Archives</h3>
+        <p>
+          Some claim it to be the largest library on Thul, holding much ancient knowledge
+          from previous epochs.
+        </p>
+      </article>
+      <article class="entry">
+        <h3>Four Gardens</h3>
+        <p>
+          Home to one of the largest trade markets in the known world, and among the
+          greatest commercial districts in the Free Cities.
+        </p>
+      </article>
+    </section>
+
+    <section class="card compact">
+      <h2>Districts</h2>
+
+      <article class="entry">
+        <h3>Ale Gate</h3>
+        <p class="meta">Home to some of the best ales in the Free Cities</p>
+        <ul>
+          <li>
+            <strong>Logan's Tap House</strong>
+          </li>
+          <li>
+            <strong>Gellmir Brother Brewing Co.</strong> 
+          </li>
+          <li>
+            <strong>The Dragon's Piss Distillery</strong>
+          </li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <h3>Eel Docks</h3>
+        <p class="meta">The docks are covered in eel grass and moss</p>
+        <ul>
+          <li>
+            <strong>Benfy's Bait and Tackle</strong> 
+          </li>
+          <li>
+            <strong>Eastern Thul Trading Co. Headquarters</strong> 
+          </li>
+          <li><strong>The Waebryn Lighthouse</strong></li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <h3>Four Gardens</h3>
+        <p class="meta">Home to the largest trade market in the known world</p>
+        <ul>
+          <li>
+            <strong>Englestein's Emporium</strong> 
+          </li>
+          <li>
+            <strong>Gil-Galad's Guild of Excellency</strong> 
+          </li>
+          <li><strong>Fenrir's Fragrances</strong></li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <h3>Mist Gate</h3>
+        <p class="meta">The southern entrance to the city is constantly covered in mist</p>
+        <ul>
+          <li><strong>Misty Farms</strong></li>
+          <li><strong>Widow's Watch</strong></li>
+          <li><strong>Buschek's Beef</strong></li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <h3>Mude Gate</h3>
+        <p class="meta">It is very poor</p>
+        <ul>
+          <li>
+            <strong>The Wrangler's Ranch</strong> 
+          </li>
+          <li>
+            <strong>The Mud Bar</strong> 
+          </li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <h3>Ravenwall</h3>
+        <p class="meta">The home to the tallest watch tower in the city</p>
+        <ul>
+          <li>
+            <strong>The Raven's Tower</strong> 
+          </li>
+          <li>
+            <strong>The Raven's Roost</strong> 
+          </li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <h3>Rose Quarter</h3>
+        <p class="meta">The streets were made from tiles, each with a pattern of a rose flower on them</p>
+        <ul>
+          <li><strong>The Grand Archives</strong></li>
+          <li>
+            <strong>The Peony Citadel</strong> 
+          </li>
+          <li>
+            <strong>Tux's Tuxes</strong> 
+          </li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <h3>Salt Point</h3>
+        <p class="meta">Home to many fishermen and merchants</p>
+        <ul>
+          <li>
+            <strong>The Green Market</strong> 
+          </li>
+          <li><strong>Shrodinger's Shipyard</strong></li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="card compact">
+      <h2>Factions</h2>
+      <article class="entry">
+        <p>placeholder</p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Compiled by the party scribe. May the dice favor the bold.</p>
+    </div>
+  </footer>
+
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+  ></script>
+  <script>
+    (function () {
+      var mapEl = document.getElementById('greenport-map');
+      if (!mapEl || typeof L === 'undefined') return;
+
+      var imageUrl = '../../../images/greenport.png';
+
+      var img = new Image();
+      img.onload = function () {
+        var h = img.naturalHeight;
+        var w = img.naturalWidth;
+
+        mapEl.style.aspectRatio = w + ' / ' + h;
+
+        var map = L.map(mapEl, {
+          crs: L.CRS.Simple,
+          minZoom: -4,
+          maxZoom: 2,
+          zoomSnap: 0.25,
+          attributionControl: false,
+        });
+
+        var bounds = [[0, 0], [h, w]];
+        L.imageOverlay(imageUrl, bounds).addTo(map);
+        map.fitBounds(bounds);
+        map.setMaxBounds([[-h * 0.25, -w * 0.25], [h * 1.25, w * 1.25]]);
+
+        var HomeControl = L.Control.extend({
+          options: { position: 'topleft' },
+          onAdd: function () {
+            var container = L.DomUtil.create(
+              'div',
+              'leaflet-bar leaflet-control map-home-control'
+            );
+            var btn = L.DomUtil.create('a', '', container);
+            btn.href = '#';
+            btn.title = 'Recenter map';
+            btn.setAttribute('aria-label', 'Recenter map');
+            btn.innerHTML = '&#8962;';
+            L.DomEvent.on(btn, 'click', function (e) {
+              L.DomEvent.preventDefault(e);
+              L.DomEvent.stopPropagation(e);
+              map.fitBounds(bounds);
+            });
+            return container;
+          },
+        });
+        map.addControl(new HomeControl());
+      };
+      img.onerror = function () {
+        mapEl.innerHTML =
+          '<p class="muted" style="padding:1rem;text-align:center;">' +
+          'Could not load the Greenport map image.</p>';
+      };
+      img.src = imageUrl;
+    })();
+  </script>
+</body>
+</html>
